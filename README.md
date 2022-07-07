@@ -23,7 +23,7 @@ $ sudo service ssh start
 
 ### git
 ```console
-$ suto apt install git
+$ sudo apt install git
 $ git --version
 $ git config --global credential.helper 'store --file ~/.git-credentials'
 $ git config --global user.name "shinssy"
