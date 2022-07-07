@@ -8,6 +8,7 @@ WSL 2는 Linux용 Windows 하위 시스템 아키텍처의 새로운 버전으�
 ## sudo 권한
 ```console
 $ sudo visudo
+> username  ALL=NOPASSWD:/usr/sbin/service
 ```
 
 ## 개발 환경 설치 파일
