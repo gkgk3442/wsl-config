@@ -16,10 +16,10 @@ if( $found ){
 
 #[Static ip]
 $ipv4Address=@('0.0.0.0','127.0.0.1');
-$ipv6Address=@('::0','::1');
+$ipv6Address=@('::','::1');
 
 #[Ports]
-$ports=@(22,3306);
+$ports=@(22,3306,3000,8080);
 
 $ports_a = $ports -join ",";
 
