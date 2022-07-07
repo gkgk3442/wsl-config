@@ -33,16 +33,10 @@ $ git config --global user.email "test@test.com"
 ### docker
 ```console
 $ sudo apt-get update
-$ sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+$ sudo apt-get install ca-certificates curl gnupg lsb-release
 $ sudo mkdir -p /etc/apt/keyrings
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-$ echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 $ sudo apt-get update
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 $ sudo service docker start
@@ -55,9 +49,7 @@ $ sudo docker ps
 ```console
 $ sudo apt update
 $ sudo apt -y install gnupg curl
-$ sudo apt-key adv \
-  --keyserver hkp://keyserver.ubuntu.com:80 \
-  --recv-keys 0xB1998361219BD9C9
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
 $ curl -O https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-3_all.deb
 $ sudo apt install ./zulu-repo_1.0.0-3_all.deb
 $ sudo apt update
