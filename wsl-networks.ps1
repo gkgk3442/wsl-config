@@ -1,4 +1,4 @@
-#PowerShell.exe -ExecutionPolicy Bypass -File d:\wsl-networks.ps1
+#PowerShell.exe -ExecutionPolicy Bypass -File .\wsl-networks.ps1
 #explorer.exe .
 #$remoteport = wsl hostname -I
 #$remoteport = wsl -d Ubuntu ifconfig docker0 `| grep "inet "

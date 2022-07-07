@@ -6,6 +6,7 @@ WSL 2는 Linux용 Windows 하위 시스템 아키텍처의 새로운 버전으�
 개별 Linux 배포는 WSL 1 또는 WSL 2 아키텍처를 사용하여 실행할 수 있습니다. 언제든지 각 배포를 업그레이드하거나 다운그레이드할 수 있으며 WSL 1 및 WSL 2 배포를 함께 실행할 수 있습니다. WSL 2는 실제 Linux 커널을 실행하는 이점을 제공하는 완전히 새로운 아키텍처를 사용합니다.
 
 ## 개발 환경 설치 파일
+- openssh
 - docker
 - git
 - java
@@ -14,11 +15,27 @@ WSL 2는 Linux용 Windows 하위 시스템 아키텍처의 새로운 버전으�
 
 ### docker
 ```console
+$ sudo apt-get update
+$ sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+$ sudo mkdir -p /etc/apt/keyrings
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+$ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+$ sudo apt-get update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+$ sudo service docker start
+$ sudo docker ps
 ```
 
 ### git
 ```console
 $ suto apt install git
+$ git --version
 $ git config --global credential.helper 'store --file ~/.git-credentials'
 $ git config --global user.name "shinssy"
 $ git config --global user.email "test@test.com"
@@ -38,11 +55,12 @@ $ sudo apt install ./zulu-repo_1.0.0-3_all.deb
 $ sudo apt update
 $ apt search zulu
 $ sudo apt install zulu17-jdk
+$ java --version
 ```
 
 > 여러 버전이 설치된 경우, java 버전 변경
 ```console
-$ update-alternatives --config java
+$ sudo update-alternatives --config java
 ```
 
 ### node, npm
