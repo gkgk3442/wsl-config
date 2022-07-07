@@ -19,10 +19,14 @@ WSL 2는 Linux용 Windows 하위 시스템 아키텍처의 새로운 버전으�
 ### git
 ```console
 $ suto apt install git
+$ git config --global credential.helper 'store --file ~/.git-credentials'
+$ git config --global user.name "shinssy"
+$ git config --global user.email "test@test.com"
 ```
 
 ### java
 > zulujdk 설치
+
 ```console
 $ sudo apt update
 $ sudo apt -y install gnupg curl
