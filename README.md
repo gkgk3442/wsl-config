@@ -9,6 +9,8 @@ WSL 2는 Linux용 Windows 하위 시스템 아키텍처의 새로운 버전으�
 ```console
 $ sudo visudo
 > shinssy ALL=NOPASSWD: /usr/sbin/service,/usr/bin/systemctl,/usr/bin/docker
+or
+> shinssy ALL=NOPASSWD: ALL
 ```
 
 ## 개발 환경 설치 파일
