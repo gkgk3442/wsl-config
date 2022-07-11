@@ -36,6 +36,7 @@ $ git --version
 $ git config --global credential.helper 'store --file ~/.git-credentials'
 $ git config --global user.name "shinssy"
 $ git config --global user.email "test@test.com"
+$ git config --global http.sslVerify false
 ```
 
 ### docker
