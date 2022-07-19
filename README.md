@@ -23,7 +23,7 @@ or
 $ mkdir ~/bin
 ~/bin/start 위치 시킬 것
 $ vi /etc/profile
-export PATH="$PATH:/home/stem/bin"
+export PATH="$PATH:/home/shinssy/bin"
 $ source /etc/profile
 $ start
 명령어 실행 시 현재 위치, 윈도우 파일 탐색기로 열림
@@ -130,3 +130,16 @@ $ wsl --shutdown
 # vscode 연동
 
 > Remote - WSL 설치할 것
+
+# sts 설치
+```console
+apt search libswt-gtk
+apt install libswt-gtk-4-java
+
+mkdir ~/sts
+cd ~/sts
+wget https://download.springsource.com/release/STS4/4.15.1.RELEASE/dist/e4.24/spring-tool-suite-4-4.15.1.RELEASE-e4.24.0-linux.gtk.x86_64.tar.gz
+tar -xvzf spring-tool-suite-4-4.15.1.RELEASE-e4.24.0-linux.gtk.x86_64.tar.gz
+mkdir ~/sts/workspace
+ln -sf /home/shinssy/sts/sts-.../SpringToolSuite4 /home/shinssy/bin/sts
+```
