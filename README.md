@@ -40,36 +40,40 @@ $ sudo apt install net-tools
 ### openssh
 
 ```console
-$ sudo apt update
-$ sudo apt install openssh-server
-$ sudo vi /etc/ssh/sshd_config
-> PasswordAuthentication yes
-$ sudo service ssh start
+sudo apt update
+sudo apt install openssh-server
+sudo vi /etc/ssh/sshd_config
+PasswordAuthentication yes
+sudo service ssh start
 ```
 
 ### git
 
 ```console
-$ sudo apt install git
-$ git --version
-$ git config --global credential.helper 'store --file ~/.git-credentials'
-$ git config --global user.name "shinssy"
-$ git config --global user.email "test@test.com"
-$ git config --global http.sslVerify false
+sudo apt install git
+git --version
+git config --global credential.helper 'store --file ~/.git-credentials'
+git config --global user.name shinssy
+git config --global user.email test@test.com
+git config --global http.sslVerify false
+git config --global pack.windowMemory 100m
+git config --global pack.SizeLimit 100m
+git config --global pack.threads 1
+git config --global pack.window 0
 ```
 
 ### docker
 
 ```console
-$ sudo apt-get update
-$ sudo apt-get install ca-certificates curl gnupg lsb-release
-$ sudo mkdir -p /etc/apt/keyrings
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-$ sudo apt-get update
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-$ sudo service docker start
-$ sudo docker ps
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo service docker start
+sudo docker ps
 ```
 
 ### java
@@ -77,15 +81,15 @@ $ sudo docker ps
 > zulujdk 설치
 
 ```console
-$ sudo apt update
-$ sudo apt -y install gnupg curl
-$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
-$ curl -O https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-3_all.deb
-$ sudo apt install ./zulu-repo_1.0.0-3_all.deb
-$ sudo apt update
-$ apt search zulu
-$ sudo apt install zulu17-jdk
-$ java --version
+sudo apt update
+sudo apt -y install gnupg curl
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+curl -O https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-3_all.deb
+sudo apt install ./zulu-repo_1.0.0-3_all.deb
+sudo apt update
+apt search zulu
+sudo apt install zulu17-jdk
+java --version
 ```
 
 > 여러 버전이 설치된 경우, java 버전 변경
