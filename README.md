@@ -8,7 +8,7 @@ WSL 2는 Linux용 Windows 하위 시스템 아키텍처의 새로운 버전으�
 
 ## sudo 권한
 
-```console
+```bash
 $ sudo visudo
 > shinssy ALL=NOPASSWD: /usr/sbin/service,/usr/bin/systemctl,/usr/bin/docker
 or
@@ -20,11 +20,12 @@ or
 - start 파일 참고
 
 ```console
-$ mkdir ~/bin
-~/bin/start 위치 시킬 것
-$ vi /etc/profile
-export PATH="$PATH:/home/shinssy/bin"
-$ source /etc/profile
+$ mkdir ~/.local/bin
+~/.local/bin/start 위치 시킬 것
+
+$ chmod 755 start
+
+$ source ~/.profile
 $ start
 명령어 실행 시 현재 위치, 윈도우 파일 탐색기로 열림
 ```
@@ -56,10 +57,6 @@ git config --global credential.helper 'store --file ~/.git-credentials'
 git config --global user.name shinssy
 git config --global user.email test@test.com
 git config --global http.sslVerify false
-git config --global pack.windowMemory 100m
-git config --global pack.SizeLimit 100m
-git config --global pack.threads 1
-git config --global pack.window 0
 ```
 
 ### docker
@@ -130,20 +127,3 @@ $ wsl --shutdown
 
 - 트리거 : 로그온할 때
 - 동작 : 프로그램 시작
-
-# vscode 연동
-
-> Remote - WSL 설치할 것
-
-# sts 설치
-```console
-apt search libswt-gtk
-apt install libswt-gtk-4-java
-
-mkdir ~/sts
-cd ~/sts
-wget https://download.springsource.com/release/STS4/4.15.1.RELEASE/dist/e4.24/spring-tool-suite-4-4.15.1.RELEASE-e4.24.0-linux.gtk.x86_64.tar.gz
-tar -xvzf spring-tool-suite-4-4.15.1.RELEASE-e4.24.0-linux.gtk.x86_64.tar.gz
-mkdir ~/sts/workspace
-ln -sf /home/shinssy/sts/sts-.../SpringToolSuite4 /home/shinssy/bin/sts
-```
