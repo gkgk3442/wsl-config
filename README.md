@@ -15,6 +15,10 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
+```bash
+wsl --set-default-version 2
+```
+
 ## sudo 권한
 
 ```bash
