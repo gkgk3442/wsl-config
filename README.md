@@ -11,6 +11,10 @@ WSL 2는 Linux용 Windows 하위 시스템 아키텍처의 새로운 버전으�
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
+```bash
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
 ## sudo 권한
 
 ```bash
