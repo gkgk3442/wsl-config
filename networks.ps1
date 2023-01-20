@@ -5,7 +5,7 @@ $privateIp='ip 설정할것';
 $localhostIp='127.0.0.1';
 
 #[ports]
-$ports=@(22,3000,3306,6379,8080);
+$ports=@(22,3000,3306,8080,8443);
 
 Write-Output "portproxy reset";
 iex "netsh interface portproxy reset";
