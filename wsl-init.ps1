@@ -24,8 +24,8 @@ iex "New-NetFireWallRule -DisplayName '$firewallName' -Direction Inbound -LocalP
 #=================================================================================
 
 #[Static ip]
-$ipv4Address=@('127.0.0.1');
-$ipv6Address=@('::1');
+$ipv4Address=@('0.0.0.0');
+$ipv6Address=@('::0');
 
 #$wslAddress = wsl hostname -I
 #$wslAddress = wsl -d Ubuntu ifconfig docker0 `| grep "inet "
