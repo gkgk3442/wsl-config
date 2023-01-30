@@ -22,7 +22,7 @@ iex "New-NetFireWallRule -DisplayName '$firewallName' -Direction Inbound -LocalP
 #=================================================================================
 # windows forwarding
 #=================================================================================
-<#
+
 #[Static ip]
 $ipv4Address=@('127.0.0.1');
 $ipv6Address=@('::1');
@@ -63,5 +63,5 @@ for( $i = 0; $i -lt $ports.length; $i++ ){
 }
 
 iex "netsh interface portproxy show all";
-#>
+
 sleep 5
