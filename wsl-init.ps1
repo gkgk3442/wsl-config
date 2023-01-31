@@ -63,5 +63,3 @@ for( $i = 0; $i -lt $ports.length; $i++ ){
 }
 
 iex "netsh interface portproxy show all";
-
-sleep 5
