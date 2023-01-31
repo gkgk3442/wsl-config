@@ -128,10 +128,9 @@ $ sudo apt install nodejs
 $ wsl --shutdown
 ```
 
-# networks.ps1
+# wsl-init.ps1
 
 > wsl 에서 사용되는 포트와 호스트(로컬 pc)의 포트포워딩을 해주며, 외부로 포트를 열어줌  
-> $privateIp 부분에 접근할 ip 설정 할 것  
 > $ports 부분에 포트포워딩 할 포트들 나열 할 것
 
 
