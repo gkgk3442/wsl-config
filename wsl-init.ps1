@@ -1,12 +1,33 @@
 #PowerShell.exe -ExecutionPolicy Bypass -File .\wsl-networks.ps1
 #explorer.exe .
 
-#[Ports]
-$ports=@(22,3000,3306,8080,8443);
+#[Service]
+$services=@('ssh', 'cron', 'docker');
 
-#=================================================================================
-# windows firewall
-#=================================================================================
+#[Ports]
+$ports=@(22,3000,3306,6379,8080,8443);
+
+#[Static ip]
+$ipv4Address=@('0.0.0.0');
+$ipv6Address=@('::');
+
+echo "=================================================================================";
+echo "wsl service";
+echo "=================================================================================";
+#bash -c "sudo service ssh start"
+#bash -c "sudo service cron start"
+#bash -c "sudo service docker start"
+
+for( $i = 0; $i -lt $services.length; $i++ ){
+	$service = $services[$i];
+
+	echo "restart service : $service";
+	wsl -d Ubuntu sudo systemctl restart $service
+}
+
+echo "=================================================================================";
+echo "windows firewall";
+echo "=================================================================================";
 
 #[Firewall name]
 $firewallName="WSL 2 Firewall Unlock";
@@ -19,13 +40,9 @@ echo "Adding Exception Rules for inbound and outbound Rules : $firewallName : $p
 iex "New-NetFireWallRule -DisplayName '$firewallName' -Direction Outbound -LocalPort $ports_a -Action Allow -Protocol TCP";
 iex "New-NetFireWallRule -DisplayName '$firewallName' -Direction Inbound -LocalPort $ports_a -Action Allow -Protocol TCP";
 
-#=================================================================================
-# windows forwarding
-#=================================================================================
-
-#[Static ip]
-$ipv4Address=@('0.0.0.0');
-$ipv6Address=@('::0');
+echo "=================================================================================";
+echo "wsl port forwarding";
+echo "=================================================================================";
 
 #$wslAddress = wsl hostname -I
 #$wslAddress = wsl -d Ubuntu ifconfig docker0 `| grep "inet "
@@ -38,6 +55,7 @@ if( $found ){
   Write-Output "Ubuntu eth0 inet : $wslAddress";
 } else{
   echo "The Script Exited, the ip address of WSL 2 cannot be found";
+  sleep 30;
   exit;
 }
 
