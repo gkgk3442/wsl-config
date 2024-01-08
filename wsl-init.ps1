@@ -1,29 +1,17 @@
 #PowerShell.exe -ExecutionPolicy Bypass -File .\wsl-networks.ps1
 #explorer.exe .
 
-#[Service]
-$services=@('ssh', 'cron', 'docker');
-
 #[Ports]
-$ports=@(22,3000,3306,6379,8080,8443);
+$ports=@(22,80,443,3000,3306,6379,8080,8443);
 
 #[Static ip]
 $ipv4Address=@('0.0.0.0');
 $ipv6Address=@('::');
 
 echo "=================================================================================";
-echo "wsl service";
+echo "wsl run";
 echo "=================================================================================";
-#bash -c "sudo service ssh start"
-#bash -c "sudo service cron start"
-#bash -c "sudo service docker start"
-
-for( $i = 0; $i -lt $services.length; $i++ ){
-	$service = $services[$i];
-
-	echo "restart service : $service";
-	wsl -d Ubuntu sudo systemctl restart $service
-}
+powershell.exe -Command "start-process wsl.exe -WindowStyle Hidden"
 
 echo "=================================================================================";
 echo "windows firewall";
