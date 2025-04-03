@@ -2,5 +2,12 @@
 processors=4
 memory=4GB
 swap=8GB
+# wsl 성능 정보 확인용
 pageReporting=true
-localhostForwarding=true
+networkingMode=mirrored
+dnsTunneling=true
+
+[experimental]
+autoMemoryReclaim=gradual
+#sparseVhd=true
+#hostAddressLoopback = true
