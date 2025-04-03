@@ -1,0 +1,31 @@
+#PowerShell.exe -ExecutionPolicy Bypass -File .\wsl-networks.ps1
+#explorer.exe .
+
+#[Ports]
+$ports=@(22,1883,3000,3306,6379,8443);
+
+#[Static ip]
+$ipv4Address=@('0.0.0.0');
+$ipv6Address=@('::');
+
+echo "=================================================================================";
+echo "wsl run";
+echo "=================================================================================";
+powershell.exe -Command "start-process wsl.exe -WindowStyle Hidden"
+
+echo "=================================================================================";
+echo "windows firewall";
+echo "=================================================================================";
+
+#[Firewall name]
+$firewallName="WSL 2 Firewall Unlock";
+$ports_a = $ports -join ",";
+
+echo "Remove Firewall Exception Rules : $firewallName";
+iex "Remove-NetFireWallRule -DisplayName '$firewallName';
+#iex "Remove-NetFireWallRule -DisplayName '$firewallName' -Direction Outbound";
+#iex "Remove-NetFireWallRule -DisplayName '$firewallName' -Direction Inbound";
+
+echo "Adding Exception Rules for inbound and outbound Rules : $firewallName : $ports_a";
+#iex "New-NetFireWallRule -DisplayName '$firewallName' -Direction Outbound -LocalPort $ports_a -Action Allow -Protocol TCP";
+iex "New-NetFireWallRule -DisplayName '$firewallName' -Direction Inbound -LocalPort $ports_a -Action Allow -Protocol TCP";
