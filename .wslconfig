@@ -5,9 +5,9 @@ swap=8GB
 # wsl 성능 정보 확인용
 pageReporting=true
 networkingMode=mirrored
-dnsTunneling=true
 
 [experimental]
+dnsTunneling=true
 autoMemoryReclaim=gradual
 #sparseVhd=true
-#hostAddressLoopback = true
+hostAddressLoopback = true
