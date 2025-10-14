@@ -22,7 +22,7 @@ $firewallName="WSL 2 Firewall Unlock";
 $ports_a = $ports -join ",";
 
 echo "Remove Firewall Exception Rules : $firewallName";
-iex "Remove-NetFireWallRule -DisplayName '$firewallName';
+iex "Remove-NetFireWallRule -DisplayName '$firewallName'";
 #iex "Remove-NetFireWallRule -DisplayName '$firewallName' -Direction Outbound";
 #iex "Remove-NetFireWallRule -DisplayName '$firewallName' -Direction Inbound";
 
